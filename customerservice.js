@@ -2,24 +2,24 @@ var express = require('express');
 var app = express();
 
 
-//Reusable controllers
+
 var customerController=function (req, res) {
   console.log("CAlling rest api");
   var customers=[
           
  {CompanyName: "Fabrikam"},
  {TotalOffices: 24},
- {Products_Services1: "Web development"},
- {Products_Services2: "Software Devlopment and Services"}, 
- {Products_Services3: "Cloud Services"
+ {products:[{Products_Service1: "Web development"},
+ {Products_Service2: "Software Devlopment and Services"}, 
+ {Products_Service3: "Cloud Services"}]},
  {Iaas: "Google Cloud Platform"},
  {host: "AWS"}
+           
            
       ];
   res.send(customers);
 };
 
-// setting router to map requests  with controllers
 
 app.get('/customers',customerController );
 
